@@ -52,6 +52,7 @@ def get_words(args, session=None):
 
 # Function to retrieve the dictionary of data from the website
 def get_dico():
+    print("starting")
     base_url = "https://dico-petitbac.com/"
     dico = {}  # Initialize an empty dictionary
     with requests.Session() as session:  # Create a requests session
@@ -65,6 +66,7 @@ def get_dico():
             dico.setdefault(category, {}).setdefault(letter, []).extend(
                 words
             )  # Populate the dictionary with words
+    print("finishing")
     return dico
 
 

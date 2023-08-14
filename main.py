@@ -1,17 +1,19 @@
 import json
-from random import choice
+import random
+import os
 
-with open("dico.json", "r") as read_file:
-    data = json.load(read_file)
-
-
-# for key in data.keys():
-test = data["animaux"].keys()
-print(test.values())
+JSON_FILEPATH = os.path.join("data", "dico.json")
+with open(JSON_FILEPATH, "r") as f:
+    data = json.load(f)
 
 
-def get_word(letter):
-    pass
+def find_word(lettre):
+    for keys in data:
+        value = random.choice(list(data[keys][lettre]))
+        print(keys, ":", value)
+
+
+find_word("a")
 
 
 # get_word("A")
